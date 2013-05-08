@@ -10,8 +10,8 @@ class Game
 
   end
 
-  def self.all
-    url = "http://www.ccasports.com/teams/3263/marc-lopez-law-presents-kick-it-bounce"
+  def self.for_team(team_id)
+    url = "http://www.ccasports.com/teams/#{team_id}/"
 
     response = HTTParty.get(url)
     doc = Nokogiri::HTML(response)
@@ -26,8 +26,24 @@ class Game
     games
   end
 
+  def self.for_teams(team_ids)
+    team_ids.map do |id|
+      Game.for_team(id)
+    end.flatten
+  end
+
+  def game_time
+    time_day = "#{@day} #{@time}"
+    Time.parse(time_day)
+  end
+
+
+  def <=>(other)
+    game_time <=> other.game_time
+  end
+
   def played?
     time_day = "#{@day} #{@time}"
-    Time.now > Time.parse(time_day)
+    Time.now > self.game_time
   end
 end
