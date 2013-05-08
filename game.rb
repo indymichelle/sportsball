@@ -1,10 +1,10 @@
 class Game
+  attr_accessor :day, :time, :team1, :team2
   def initialize(day, time, team1, team2)
     @day = day
     @time = time
     @team1 = team1
     @team2 = team2
-
   end
 
   def self.for_team(team_id)
