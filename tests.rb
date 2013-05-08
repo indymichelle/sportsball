@@ -1,6 +1,9 @@
+require "bundler"
+Bundler.require
+
 require "test/unit"
 
-require_relative "scrape"
+require_relative "game"
 
 class MyTests < Test::Unit::TestCase
   def test_lists_all_games

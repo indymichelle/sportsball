@@ -1,6 +1,3 @@
-require "bundler"
-Bundler.require
-
 class Game
   def initialize(day, time, team1, team2)
     @day = day
@@ -37,6 +34,9 @@ class Game
     Time.parse(time_day)
   end
 
+  def simple_description
+    "%20s %8s   #{@team1} vs #{@team2}" % [@day, @time]
+  end
 
   def <=>(other)
     game_time <=> other.game_time
@@ -46,4 +46,5 @@ class Game
     time_day = "#{@day} #{@time}"
     Time.now > self.game_time
   end
+
 end
