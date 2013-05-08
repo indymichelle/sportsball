@@ -3,6 +3,5 @@ source "https://rubygems.org"
 gem 'httparty'
 gem 'nokogiri'
 gem 'pry'
-gem 'time'
 gem 'sinatra'
 gem 'sinatra-contrib'
