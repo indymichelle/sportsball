@@ -39,7 +39,7 @@
       <table class="table table-condensed table-striped span8">
         <% @games.each do |game| %>
           <tr>
-            <td><%= game.game_time.strftime("%b %e %Y %l:%m %p") %></td>
+            <td><%= game.game_time.strftime("%b %e %Y %l:%M %p") %></td>
             <td><%= game.team1 %></td>
             <td>vs.</td>
             <td><%= game.team2 %></td>
