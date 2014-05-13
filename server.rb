@@ -4,7 +4,7 @@ Bundler.require
 require 'sinatra/reloader' unless ENV['RACK_ENV'] == 'production'
 require_relative "game"
 
-TEAMS = [3263, 2450, 3581, 1545, 3277]
+TEAMS = [3263, 2450, 3581, 1545, 3277, 51, 1265, 3131, 1814, 3060]
 
 
 get '/' do
