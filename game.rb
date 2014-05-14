@@ -30,7 +30,7 @@ class Game
   end
 
   def game_time
-    time_day = "#{@day} #{@time}"
+    time_day = "#{@day} #{@time} EST"
     Time.parse(time_day)
   end
 
