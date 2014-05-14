@@ -9,7 +9,7 @@ TEAMS = [3263, 2450, 3581, 1545, 3277, 51, 1265, 3131, 1814, 3060]
 
 get '/' do
   @games = Game.for_teams(TEAMS)
-  @games.select! { |g| !g.played? }
+  @games.select! { |g| g.display? }
   @games.sort!
   erb :index
 end

@@ -1,4 +1,5 @@
 class Game
+  LINGERTIME = (60*60*5) # amount of time after game has started that it will still display - 5 hrs
   attr_accessor :day, :time, :team1, :team2
   def initialize(day, time, team1, team2)
     @day = day
@@ -42,9 +43,8 @@ class Game
     game_time <=> other.game_time
   end
 
-  def played?
-    time_day = "#{@day} #{@time}"
-    Time.now > self.game_time
+  def display?
+    Time.now - LINGERTIME < self.game_time
   end
 
 end
