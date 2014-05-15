@@ -1,7 +1,7 @@
 class Time
   def in_time_zone(time_zone_name)
     timezone = TZInfo::Timezone.get(time_zone_name)
-    timezone.utc_to_local(utc)
+    timezone.utc_to_local(self.utc)
   end
 end
 
