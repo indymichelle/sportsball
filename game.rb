@@ -30,9 +30,15 @@ class Game
     end.flatten
   end
 
+
+
+
   def game_time
-    time_day = "#{@day} #{@time} EST"
+    time_day = "#{@day} #{@time} EDT"
+    timezone = TZInfo::Timezone.get('America/New_York')
     Time.parse(time_day)
+    utctime = Time.parse(time_day).utc
+    timezone.utc_to_local(utctime)
   end
 
   def simple_description
