@@ -1,3 +1,11 @@
+class Time
+  def in_time_zone(time_zone_name)
+    timezone = TZInfo::Timezone.get(time_zone_name)
+    timezone.utc_to_local(utc)
+  end
+end
+
+
 class Game
   LINGERTIME = (60*60*5) # amount of time after game has started that it will still display - 5 hrs
   attr_accessor :day, :time, :team1, :team2
@@ -30,15 +38,9 @@ class Game
     end.flatten
   end
 
-
-
-
   def game_time
     time_day = "#{@day} #{@time} EDT"
-    timezone = TZInfo::Timezone.get('America/New_York')
     Time.parse(time_day)
-    utctime = Time.parse(time_day).utc
-    timezone.utc_to_local(utctime)
   end
 
   def simple_description
